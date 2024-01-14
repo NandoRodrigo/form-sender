@@ -11,4 +11,10 @@ form.addEventListener("submit", (e) => {
   fetch(scriptURL, { method: "POST", body: formData })
     .then((res) => alert("Enviado com sucesso!"))
     .catch((err) => console.error("Error!", err.message));
+
+  [...e.target.children].forEach((element) => {
+    if (element.tagName !== "BUTTON") {
+      element.value = "";
+    }
+  });
 });
